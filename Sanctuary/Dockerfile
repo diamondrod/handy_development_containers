@@ -1,7 +1,7 @@
 FROM almalinux:9.0
 
 ## Install minimal dependencies
-RUN dnf install wget gcc gcc-c++ make cmake glibc-locale-source glibc-langpack-en langpacks-en glibc-langpack-ja langpacks-ja -y
+RUN dnf install wget gcc gcc-c++ make cmake git glibc-locale-source glibc-langpack-en langpacks-en glibc-langpack-ja langpacks-ja -y
 
 ## Create a user
 ## Needto pass the new user name and its password

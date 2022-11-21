@@ -11,7 +11,7 @@ RUN useradd -G sudo -m ${USER} && \
     echo "${USER} ALL=(ALL) ALL" >> /etc/sudoers
 
 ## Install minimal tools
-RUN apt-get install wget curl gcc g++ make cmake git language-pack-ja -y
+RUN apt-get install wget curl gcc g++ make cmake git language-pack-ja vim -y
 
 ## Set locale to handle Japanese
 RUN locale-gen ja_JP.utf8  
@@ -26,6 +26,7 @@ RUN chsh -s /bin/bash ${USER}
 
 ## Creata a workspace for the user
 USER ${USER}
+ENV USER ${USER}
 WORKDIR /home/${USER}
 RUN mkdir workspace
 RUN mkdir shared
