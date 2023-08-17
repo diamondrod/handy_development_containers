@@ -1,4 +1,4 @@
-# Handly Virtual Machine
+# Handy Development Containers
 
 Scripts to build a simple development environments with Docker containers.
 
