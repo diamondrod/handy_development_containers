@@ -9,12 +9,16 @@
 
 MODE=$1
 MACHINE_NAME=$2
-HOST_NAME=$3
-VOLUME=$4
+HOST_NAME=""
+VOLUME=""
 
 if [ ${MODE} = "up" ]; then
-    if [ "$3" != "" ]; then
-        HOST_CONFIG="--hostname ${HOST_NAME}"
+    if [ $# -eq 3 ]; then
+        ## Hostname for a container was omitted
+        VOLUME=$3
+    elif [ $# -ge 4 ]; then
+        HOST_CONFIG="--hostname $3"
+        VOLUME=$4
     fi
     docker run -i -d --name ${MACHINE_NAME,,}\
      --mount type=bind,source=${VOLUME}/${MACHINE_NAME},target=/home/${USER}/workspace\
