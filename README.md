@@ -2,6 +2,8 @@
 
 Scripts to build a simple development environments with Docker containers.
 
+**Note:** for Mac, you should set [Lima](https://github.com/lima-vm/lima/) with the docker template.
+
 ## 1. Build Virtual Machine Image
 
 1. Create a source voulme of the machine name under a persistent location (For example, you can create a directory `MyMachine` under `/your/dev/files`). 
