@@ -1,6 +1,8 @@
-# Handly Virtul Machine
+# Handly Virtual Machine
 
-## Build Virtual Machine Image
+Scripts to build a simple development environments with Docker containers.
+
+## 1. Build Virtual Machine Image
 
 1. Create a source voulme of the machine name under a persistent location (For example, you can create a directory `MyMachine` under `/your/dev/files`). 
 2. Create a directory of the machine name under this repository root (namely, `handy_development_containers`).
@@ -10,26 +12,36 @@
 handy_development_containers]$ ./build.sh MyMachine
 ```
 
-## Create a New Container from Machine Image
+## 2. Control Script
+
+This section shows how to use control scripts.
+
+### 2.1. Create a New Container from Machine Image
 
 ```sh
 handy_development_containers]$ ./control.sh up MyMachine [Host Name] [Root of the source volumes (`/your/dev/files` etc.)]
 ```
 
-## Remove a Container
+### 2.2. Remove a Container
 
 ```sh
 handy_development_containers]$ ./control.sh down MyMachine
 ```
 
-## Stop a Container
+### 2.3. Stop a Container
 
 ```sh
 handy_development_containers]$ ./control.sh stop MyMachine
 ```
 
-## Start a Container
+### 2.4. Start a Container
 
 ```sh
 handy_development_containers]$ ./control.sh start MyMachine
 ```
+
+## 3. Samples
+
+Two samples are provided in this repository:
+- [Ubuntu 22.04](./Revival)
+- [AlmaLinux 9](./Sanctuary/)
