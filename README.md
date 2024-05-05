@@ -13,6 +13,10 @@ Scripts to build a simple development environments with Docker containers.
 ```sh
 handy_development_containers]$ ./build.sh MyMachine
 ```
+If you need to build without cache, run:
+```sh
+handy_development_containers]$ ./build.sh MyMachine --no-cache
+```
 
 ## 2. Control Script
 
