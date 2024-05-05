@@ -7,9 +7,10 @@ Scripts to build a simple development environments with Docker containers.
 ## 1. Build Virtual Machine Image
 
 1. Create a source voulme of the machine name under a persistent location (For example, you can create a directory `MyMachine` under `/your/dev/files`). 
-2. Create a directory of the machine name under this repository root (namely, `handy_development_containers`).
-3. Prepare `Dockerfile` for the machine under the directory created in 2.
-4. Run (replace `MyMachine` with your machine name):
+2. Create a source voulme for a shared directory across containers under a persistent location (`Shared` under `/your/dev/files`). 
+3. Create a directory of the machine name under this repository root (namely, `handy_development_containers`).
+4. Prepare `Dockerfile` for the machine under the directory created in 2.
+5. Run (replace `MyMachine` with your machine name):
 ```sh
 handy_development_containers]$ ./build.sh MyMachine
 ```
