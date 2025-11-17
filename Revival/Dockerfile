@@ -11,7 +11,7 @@ RUN useradd -G sudo -m ${USER} && \
     echo "${USER} ALL=(ALL) ALL" >> /etc/sudoers
 
 ## Install minimal tools
-RUN apt-get install wget curl gcc g++ make cmake git language-pack-ja vim -y
+RUN apt-get install wget curl gcc g++ make cmake git language-pack-ja vim net-tools -y
 
 ## Set locale to handle Japanese
 RUN locale-gen ja_JP.utf8  
@@ -32,10 +32,10 @@ RUN mkdir workspace
 RUN mkdir shared
 
 ## Create a location in the root for variaous configurations
-RUN mkdir configs
+RUN mkdir config
 RUN echo "alias ll='ls -l'" >> .bash_aliases
-RUN echo 'export PS1="\[\e[32;1m\][\u@\h \W]\$ \[\e[0m\]"' > configs/console.config
-RUN echo 'source ~/configs/console.config' >> .bashrc
+RUN echo 'export PS1="\[\e[32;1m\][\u@\h:\W]\$ \[\e[0m\]"' > config/console.conf
+RUN echo '#### Custom\nfor file in $(ls -1 ~/config/*.conf)\ndo\n\tsource ${file};\ndone' >> .bashrc
 
 ## Mount point of the local disk space and shared directory.
 VOLUME workspace

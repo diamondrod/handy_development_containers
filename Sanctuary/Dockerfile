@@ -24,10 +24,10 @@ RUN mkdir workspace
 RUN mkdir shared
 
 ## Create a location in the root for variaous configurations
-RUN mkdir configs
+RUN mkdir config
 RUN echo "alias ll='ls -l'" >> .bashrc
-RUN echo 'export PS1="\[\e[32;1m\][\u@\h \W]\$ \[\e[0m\]"' > configs/console.config
-RUN echo 'source ~/configs/console.config' >> .bashrc
+RUN echo 'export PS1="\[\e[32;1m\][\u@\h:\W]\$ \[\e[0m\]"' > config/console.conf
+RUN echo '#### Custom\nfor file in $(ls -1 ~/config/*.conf)\ndo\n\tsource ${file};\ndone' >> .bashrc
 
 ## Mount point of the local disk space and shared directory.
 VOLUME workspace

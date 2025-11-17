@@ -26,7 +26,7 @@ This section shows how to use control scripts.
 ### 2.1. Create a New Container from Machine Image
 
 ```sh
-handy_development_containers]$ ./control.sh up MyMachine [Host Name] [Root of the source volumes (`/your/dev/files` etc.)]
+handy_development_containers]$ ./control.sh up MyMachine [--port source:destination]+ [Host Name used in the container] [Root of the source volumes (`/your/dev/files` etc.)]
 ```
 
 ### 2.2. Remove a Container
