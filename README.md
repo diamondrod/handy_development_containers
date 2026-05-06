@@ -12,11 +12,11 @@ Scripts to build a simple development environments with Docker containers.
 4. Prepare `Dockerfile` for the machine under the directory created in 2.
 5. Run (replace `MyMachine` with your machine name):
 ```sh
-handy_development_containers]$ ./build.sh MyMachine
+[handy_development_containers]$ ./build.sh MyMachine
 ```
 If you need to build without cache, run:
 ```sh
-handy_development_containers]$ ./build.sh MyMachine --no-cache
+[handy_development_containers]$ ./build.sh MyMachine --no-cache
 ```
 
 ## 2. Control Script
@@ -25,26 +25,31 @@ This section shows how to use control scripts.
 
 ### 2.1. Create a New Container from Machine Image
 
+First you need to create a shared folder under local directory for container volumes (`/your/volumes`):
 ```sh
-handy_development_containers]$ ./control.sh up MyMachine [--port source:destination]+ [Host Name used in the container] [Root of the source volumes (`/your/dev/files` etc.)]
+$ mkdir -p /your/volumes/Shared
+```
+
+```sh
+[handy_development_containers]$ ./control.sh up MyMachine [--port source:destination]+ [--host Host Name used in the container] --volume /your/volumes
 ```
 
 ### 2.2. Remove a Container
 
 ```sh
-handy_development_containers]$ ./control.sh down MyMachine
+[handy_development_containers]$ ./control.sh down MyMachine
 ```
 
 ### 2.3. Stop a Container
 
 ```sh
-handy_development_containers]$ ./control.sh stop MyMachine
+[handy_development_containers]$ ./control.sh stop MyMachine
 ```
 
 ### 2.4. Start a Container
 
 ```sh
-handy_development_containers]$ ./control.sh start MyMachine
+[handy_development_containers]$ ./control.sh start MyMachine
 ```
 
 ## 3. Samples
