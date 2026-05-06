@@ -15,9 +15,9 @@ RUN apt-get install wget curl gcc g++ make cmake git language-pack-ja vim net-to
 
 ## Set locale to handle Japanese
 RUN locale-gen ja_JP.utf8  
-ENV LANG ja_JP.utf8 
-ENV LANGUAGE ja_JP:ja
-ENV LC_ALL ja_JP.utf8
+ENV LANG=ja_JP.utf8 
+ENV LANGUAGE=ja_JP:ja
+ENV LC_ALL=ja_JP.utf8
 
 ## Configure shell to use bash
 RUN echo "dash dash/sh boolean false" | debconf-set-selections
@@ -26,7 +26,7 @@ RUN chsh -s /bin/bash ${USER}
 
 ## Creata a workspace for the user
 USER ${USER}
-ENV USER ${USER}
+ENV USER=${USER}
 WORKDIR /home/${USER}
 RUN mkdir workspace
 RUN mkdir shared

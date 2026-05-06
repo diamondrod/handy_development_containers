@@ -50,5 +50,5 @@ handy_development_containers]$ ./control.sh start MyMachine
 ## 3. Samples
 
 Two samples are provided in this repository:
-- [Ubuntu 22.04](./Revival)
+- [Ubuntu 24.04](./Rapture/)
 - [AlmaLinux 9](./Sanctuary/)

@@ -17,7 +17,7 @@ if [ "${OLD_MACHINE_IMAGE_ROW_NUMBER}" != "" ]; then
 fi
 
 ## Build new image
-docker build ${NO_CACHE} --build-arg PASSWORD=${CONTAINER_PASSWORD} --build-arg USER=${USER} --file=${MACHINE_NAME}/Dockerfile ${MACHINE_NAME}/ --tag ${MACHINE_NAME,,}:latest
+docker build ${NO_CACHE} --build-arg PASSWORD=${CONTAINER_PASSWORD} --build-arg USER=${USER} --build-arg UID=$(id -u) --build-arg GID=$(id -g) --file=${MACHINE_NAME}/Dockerfile ${MACHINE_NAME}/ --tag ${MACHINE_NAME,,}:latest
 
 ## Record machine image ID
 MACHINE_IMAGE_ID=$(docker image ls | grep ${MACHINE_NAME,,} | awk '{print $3}')
