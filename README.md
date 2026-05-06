@@ -31,7 +31,7 @@ $ mkdir -p /your/volumes/Shared
 ```
 
 ```sh
-[handy_development_containers]$ ./control.sh up MyMachine [--port source:destination]+ [--host Host Name used in the container] --volume /your/volumes
+[handy_development_containers]$ ./control.sh up MyMachine [--mac-address MAC Address] [--port source:destination]+ [--host Host Name used in the container] --volume /your/volumes
 ```
 
 ### 2.2. Remove a Container

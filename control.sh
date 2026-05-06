@@ -11,6 +11,7 @@ HOST_NAME=""
 VOLUME=""
 NETWORK=""
 PORT_MAP=""
+MAC_ADDRESS=""
 
 case ${MODE} in
     "up")
@@ -37,12 +38,17 @@ case ${MODE} in
                     shift
                     shift
                     ;;
+                "--mac-address")
+                    MAC_ADDRESS="--mac-address $2"
+                    shift
+                    shift
+                    ;;
                 *)
                     echo "Unknwon option: $1";
                     ;;
             esac
         done
-        docker run -i -d ${NETWORK} ${PORT_MAP} --name ${MACHINE_NAME,,}\
+        docker run -i -d ${NETWORK} ${PORT_MAP} --name ${MACHINE_NAME,,} ${MAC_ADDRESS}\
         --mount type=bind,source=${VOLUME}/${MACHINE_NAME},target=/home/${USER}/workspace\
         --mount type=bind,source=${VOLUME}/Shared,target=/home/${USER}/shared\
         ${HOST_NAME}\
