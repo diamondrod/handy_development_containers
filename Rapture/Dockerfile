@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM ubuntu:26.04
 
 ## Create a user
 ## Needto pass the new user name and its password
@@ -16,7 +16,7 @@ RUN useradd -m -u ${UID} -g ${GID} -G sudo ${USER} && \
     echo "${USER} ALL=(ALL) ALL" >> /etc/sudoers
 
 ## Install minimal tools
-RUN apt-get install wget curl gcc g++ make cmake git language-pack-ja vim net-tools musl-tools clangd -y
+RUN apt-get install wget curl gcc g++ make cmake git language-pack-ja vim net-tools iputils-ping musl-tools clangd libssl-dev -y
 
 ## Set locale to handle Japanese
 RUN locale-gen ja_JP.utf8  

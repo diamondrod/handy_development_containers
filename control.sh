@@ -9,7 +9,7 @@ shift
 ## Options
 HOST_NAME=""
 VOLUME=""
-NETWORK=""
+NETWORK="--network handy-development-network"
 PORT_MAP=""
 MAC_ADDRESS=""
 
