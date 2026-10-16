@@ -15,7 +15,7 @@ RUN addgroup -g ${GID} ${USER} \
     && echo "${USER} ALL=(ALL) ALL" >> /etc/sudoers
 
 ## Install minimal tools
-RUN apk add --no-cache wget curl gcc g++ make cmake git mbedtls-dev
+RUN apk add --no-cache wget curl gcc g++ make cmake git mbedtls-dev openssh
 
 ## Set locale to handle Japanese
 RUN apk add --no-cache tzdata musl-locales musl-locales-lang
