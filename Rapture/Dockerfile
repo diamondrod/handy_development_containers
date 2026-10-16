@@ -16,7 +16,7 @@ RUN useradd -m -u ${UID} -g ${GID} -G sudo ${USER} && \
     echo "${USER} ALL=(ALL) ALL" >> /etc/sudoers
 
 ## Install minimal tools
-RUN apt-get install wget curl gcc g++ make cmake git language-pack-ja vim net-tools iputils-ping musl-tools clangd libssl-dev -y
+RUN apt-get install wget curl gcc g++ make cmake git language-pack-ja net-tools iputils-ping clangd libmbedtls-dev -y
 
 ## Set locale to handle Japanese
 RUN locale-gen ja_JP.utf8  
