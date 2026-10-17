@@ -12,6 +12,7 @@ VOLUME=""
 NETWORK="--network handy-development-network"
 PORT_MAP=""
 MAC_ADDRESS=""
+IMAGE="${MACHINE_NAME,,}:latest"
 
 case ${MODE} in
     "up")
@@ -43,6 +44,11 @@ case ${MODE} in
                     shift
                     shift
                     ;;
+                "--image")
+                    IMAGE="${2,,}:latest"
+                    shift
+                    shift
+                    ;;
                 *)
                     echo "Unknwon option: $1";
                     ;;
@@ -52,7 +58,7 @@ case ${MODE} in
         --mount type=bind,source=${VOLUME}/${MACHINE_NAME},target=/home/${USER}/workspace\
         --mount type=bind,source=${VOLUME}/Shared,target=/home/${USER}/shared\
         ${HOST_NAME}\
-        ${MACHINE_NAME,,}:latest
+        ${IMAGE}
         ;;
     "start")
         CONTAINER=$(docker ps -a | grep ${MACHINE_NAME,,} | awk '{print $1}');

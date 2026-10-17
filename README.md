@@ -31,7 +31,7 @@ $ mkdir -p /your/volumes/Shared
 ```
 
 ```sh
-[handy_development_containers]$ ./control.sh up MyMachine [--mac-address MAC Address] [--port source:destination]+ [--host Host Name used in the container] --volume /your/volumes
+[handy_development_containers]$ ./control.sh up MyMachine [--mac-address MAC Address] [--port source:destination]+ [--host Host Name used in the container] --volume /your/volumes [--image Existing image name, e.g., `alpine`]
 ```
 
 ### 2.2. Remove a Container
@@ -55,5 +55,6 @@ $ mkdir -p /your/volumes/Shared
 ## 3. Samples
 
 Two samples are provided in this repository:
-- [Ubuntu 24.04](./Rapture/)
+- [Ubuntu 26.04](./Rapture/)
 - [AlmaLinux 9](./Sanctuary/)
+- [Alpine Linux](./Alpine/)
